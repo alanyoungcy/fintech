@@ -7,6 +7,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, confusion_matrix
 
+#sky learn model test
 
 api_key = '978BKbPQBTuvgxCpuYXaCCdnrobuil9KCOqaSrlySX83expjS7xOrSePvi80DGU7'
 api_secret = 'ezYPqXPvRDK9g3MhYQUF7GVejiq5PYtZ2ZWrmnXnKZORDdwSGpcF1ZlckyODkHN8'
