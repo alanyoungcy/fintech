@@ -15,6 +15,7 @@ from sklearn.metrics import accuracy_score, confusion_matrix
 #Secret Key
 #ezYPqXPvRDK9g3MhYQUF7GVejiq5PYtZ2ZWrmnXnKZORDdwSGpcF1ZlckyODkHN8
 
+
 api_key = '978BKbPQBTuvgxCpuYXaCCdnrobuil9KCOqaSrlySX83expjS7xOrSePvi80DGU7'
 api_secret = 'ezYPqXPvRDK9g3MhYQUF7GVejiq5PYtZ2ZWrmnXnKZORDdwSGpcF1ZlckyODkHN8'
 
@@ -35,10 +36,10 @@ def calculate_rsi(df):
     rsi = ta.momentum.RSIIndicator(df['Close'], window=14, fillna=False)
     df['RSI'] = rsi.rsi()
     return df
-def calculate_macd(df,window_fast, window_slow,window_sign):
-    macd = ta.trend.MACD(df['close'], window_fast=window_fast, window_slow=window_slow, window_sign=window_sign)
-    df['MACD'] = macd.macd()
-    return df
+# def calculate_macd(df,window_fast, window_slow,window_sign):
+#     macd = ta.trend.MACD(df['close'], window_fast=window_fast, window_slow=window_slow, window_sign=window_sign)
+#     df['MACD'] = macd.macd()
+#     return df
 
 def turtle_trading(df, short_window=20, long_window=50):
     """
@@ -73,16 +74,16 @@ for symbol in symbols:
   
    
  
- # Add technical indicators to the dataframe
-    df['SMA_20'] = df['Close'].rolling(window=20).mean()
-    df['SMA_50'] = df['Close'].rolling(window=50).mean()
-    df['momentum_rsi'] = ta.momentum.RSIIndicator(df['Close'], window=14, fillna=False)
-    df['trend_macd'], df['trend_macd_signal'], _ = ta.trend.MACD(df['close'], window_fast=12, window_slow=26, window_sign=9)
+#  # Add technical indicators to the dataframe
+#     df['SMA_20'] = df['Close'].rolling(window=20).mean()
+#     df['SMA_50'] = df['Close'].rolling(window=50).mean()
+#     df['momentum_rsi'] = ta.momentum.RSIIndicator(df['Close'], window=14, fillna=False)
+#     df['trend_macd'], df['trend_macd_signal'], _ = ta.trend.MACD(df['close'], window_fast=12, window_slow=26, window_sign=9)
 
-    # Compute volume-related features
-    df['volume_ratio'] = df['Volume']/df['Volume'].rolling(window=10).mean()
-    df['buy_sell_ratio'] = df['Taker buy base asset volume']/df['Taker buy quote asset volume']
-    df['trade_volume_ratio'] = df['Number of trades']/df['Volume']
+#     # Compute volume-related features
+#     df['volume_ratio'] = df['Volume']/df['Volume'].rolling(window=10).mean()
+#     df['buy_sell_ratio'] = df['Taker buy base asset volume']/df['Taker buy quote asset volume']
+#     df['trade_volume_ratio'] = df['Number of trades']/df['Volume']
     
     
     # df = turtle_trading(df)
