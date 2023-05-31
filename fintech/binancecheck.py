@@ -1,7 +1,7 @@
 from binance.client  import Client
 import pandas as pd
 import numpy as np
-import ta
+import talib as ta
 
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
@@ -35,10 +35,12 @@ def calculate_rsi(df):
     rsi = ta.momentum.RSIIndicator(df['Close'], window=14, fillna=False)
     df['RSI'] = rsi.rsi()
     return df
-# def calculate_macd(df,window_fast, window_slow,window_sign):
-#     macd = ta.trend.MACD(df['close'], window_fast=window_fast, window_slow=window_slow, window_sign=window_sign)
-#     df['MACD'] = macd.macd()
-#     return df
+
+def calculate_macd(df,window_fast, window_slow,window_sign):
+    
+    macd = ta.trend.MACD(df['close'], window_fast=window_fast, window_slow=window_slow, window_sign=window_sign)
+    df['MACD'] = macd.macd()
+    return df
 
 def turtle_trading(df, short_window=20, long_window=50):
     """
