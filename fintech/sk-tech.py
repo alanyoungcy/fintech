@@ -1,10 +1,11 @@
-from binance.client  import Client
+from binance.client import Client
+
 import pandas as pd
 import numpy as np
-import ta
+import talib as ta
 
 from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LogisticRegression
+from sklearn.linear_model import LogisticRegressionp
 from sklearn.metrics import accuracy_score, confusion_matrix
 
 #sky learn model test
